@@ -30,6 +30,9 @@ class String(Value):
     def __init__(self, obj):
         self.str = obj.get('str')
 
+    def __str__(self):
+        return "'%s'" % (self.str,)
+
     @property
     def val(self):
         return self.str

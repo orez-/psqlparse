@@ -237,6 +237,10 @@ class ColumnRef(Node):
         self.fields = build_from_item(obj, 'fields')
         self.location = obj.get('location')
 
+    def __str__(self):
+        assert len(self.fields) == 1
+        return self.fields[0].str
+
     def tables(self):
         return set()
 
@@ -280,6 +284,10 @@ class AExpr(Node):
         self.lexpr = build_from_item(obj, 'lexpr')
         self.rexpr = build_from_item(obj, 'rexpr')
         self.location = obj.get('location')
+
+    def __str__(self):
+        assert len(self.name) == 1
+        return "%s %s %s" % (self.lexpr, self.name[0].val, self.rexpr)
 
     def tables(self):
         _tables = set()

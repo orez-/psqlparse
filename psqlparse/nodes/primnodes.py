@@ -53,7 +53,7 @@ class JoinExpr(Node):
         return '<JoinExpr type=%s>' % self.jointype
 
     def __str__(self):
-        return '%s JOIN %s ON ()' % (self.larg, self.rarg)
+        return '%s JOIN %s ON (%s)' % (self.larg, self.rarg, self.quals)
 
     def tables(self):
         return self.larg.tables() | self.rarg.tables()
