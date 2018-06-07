@@ -16,8 +16,12 @@ def build_from_obj(obj):
         return [build_from_obj(item) for item in obj]
     if not isinstance(obj, dict):
         return obj
-    _class = get_node_class(next(iterkeys(obj)))
-    return _class(next(itervalues(obj))) if _class else obj
+    key = next(iterkeys(obj))
+    _class = get_node_class(key)
+    if not _class:
+        print(obj)
+        raise NotImplementedError(key)
+    return _class(next(itervalues(obj)))
 
 
 def build_from_item(obj, key):
