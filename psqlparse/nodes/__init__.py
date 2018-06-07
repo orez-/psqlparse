@@ -1,8 +1,8 @@
 from .parsenodes import (SelectStmt, InsertStmt, UpdateStmt, DeleteStmt,
-                         WithClause, CommonTableExpr, RangeSubselect,
+                         CreateStmt, WithClause, CommonTableExpr, RangeSubselect,
                          ResTarget, ColumnRef, FuncCall, AStar, AExpr, AConst,
-                         TypeCast, TypeName, SortBy, WindowDef, LockingClause,
-                         RangeFunction, AArrayExpr, AIndices, MultiAssignRef)
+                         TypeCast, TypeName, SortBy, ColumnDef, WindowDef, LockingClause,
+                         RangeFunction, AArrayExpr, AIndices, MultiAssignRef, Constraint)
 from .primnodes import (RangeVar, JoinExpr, Alias, IntoClause, BoolExpr,
                         SubLink, SetToDefault, CaseExpr, CaseWhen, NullTest,
                         BooleanTest, RowExpr)

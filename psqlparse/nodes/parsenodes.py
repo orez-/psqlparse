@@ -132,6 +132,16 @@ class DeleteStmt(Statement):
         return _tables
 
 
+class CreateStmt(Statement):
+
+    statement = 'CREATE TABLE'
+
+    def __init__(self, obj):
+        self.relation = build_from_item(obj, 'relation')
+        self.table_elts = build_from_item(obj, 'tableElts')
+        self.on_commit = obj.get('oncommit')
+
+
 class WithClause(Node):
 
     def __init__(self, obj):
@@ -330,6 +340,16 @@ class SortBy(Node):
         self.location = obj.get('location')
 
 
+class ColumnDef(Node):
+
+    def __init__(self, obj):
+        self.colname = obj.get('colname')
+        self.type_name = build_from_item(obj, 'typeName')
+        self.is_local = obj.get('is_local')
+        self.constraints = build_from_item(obj, 'constraints')
+        self.location = obj.get('location')
+
+
 class WindowDef(Node):
 
     def __init__(self, obj):
@@ -381,3 +401,10 @@ class MultiAssignRef(Node):
         self.source = build_from_item(obj, 'source')
         self.colno = obj.get('colno')
         self.ncolumns = obj.get('ncolumns')
+
+
+class Constraint(Node):
+
+    def __init__(self, obj):
+        contype = obj.get('contype')
+        location = obj.get('location')
