@@ -50,3 +50,13 @@ class Float(Value):
     @property
     def val(self):
         return self.fval
+
+
+class Null(Value):
+
+    def __init__(self, obj):
+        del obj
+
+    @property
+    def val(self):
+        return None

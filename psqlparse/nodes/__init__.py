@@ -6,4 +6,4 @@ from .parsenodes import (SelectStmt, InsertStmt, UpdateStmt, DeleteStmt,
 from .primnodes import (RangeVar, JoinExpr, Alias, IntoClause, BoolExpr,
                         SubLink, SetToDefault, CaseExpr, CaseWhen, NullTest,
                         BooleanTest, RowExpr)
-from .value import Integer, String, Float
+from .value import Integer, String, Float, Null
